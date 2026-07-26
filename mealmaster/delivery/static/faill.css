@@ -1,0 +1,27 @@
+body{
+    font-family: Arial;
+    background:#f5f5f5;
+    text-align:center;
+    margin-top:150px;
+}
+
+.box{
+    width:350px;
+    margin:auto;
+    padding:20px;
+    background:white;
+    border:2px solid red;
+    border-radius:8px;
+}
+
+h2{
+    color:red;
+}
+
+a{
+    background:red;
+    color:white;
+    text-decoration:none;
+    padding:8px 15px;
+    border-radius:5px;
+}
