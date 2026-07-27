@@ -6,15 +6,15 @@
 }
 
 body{
-    background:linear-gradient(135deg,#ff4d4d,#ff9966);
+    background:linear-gradient(135deg,#fc8019,#ffb347);
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.box{
-    width:420px;
+.container{
+    width:450px;
     background:white;
     padding:40px;
     border-radius:18px;
@@ -22,36 +22,34 @@ body{
     box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
-.box::before{
-    content:"❌";
-    display:block;
+.icon{
     font-size:70px;
     margin-bottom:20px;
 }
 
-.box h2{
-    color:#e53935;
+h1{
+    color:#fc8019;
     margin-bottom:15px;
 }
 
-.box p{
+p{
     color:#666;
-    font-size:18px;
     margin-bottom:30px;
+    font-size:18px;
 }
 
-.box a{
+.btn{
     display:inline-block;
-    text-decoration:none;
     background:#fc8019;
     color:white;
     padding:14px 30px;
     border-radius:10px;
+    text-decoration:none;
     font-weight:bold;
     transition:.3s;
 }
 
-.box a:hover{
+.btn:hover{
     background:#e56f10;
     transform:translateY(-2px);
 }

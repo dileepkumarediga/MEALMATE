@@ -1,40 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Page</title>
+    <title>MealMate</title>
+
+    <link rel="stylesheet" href="{% static 'customer_home.css' %}">
 </head>
 <body>
-    <h3>Welcome {{username}}!</h3>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Restaurant name</th>
-                <th>Picture</th>
-                <th>Cuisine</th>
-                <th>Rating</th>
-                <th>Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%  for r in restaurantList %}
-                <tr>
-                    <td>{{ r.name }}</td>
-                    <td>
-                        <img src="{{ r.picture }}">
-                    </td>
-                    <td>{{ r.cuisine }}</td>
-                    <td>{{ r.rating }}</td>
-                    <td>
-                        <a href="{% url 'view_menu' r.id username %}">
-                            View Menu
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<header>
+    <h1>🍽 MealMate</h1>
+    <h2>Welcome {{ username }} 👋</h2>
+</header>
+
+<div class="container">
+
+{% for restaurant in restaurantList %}
+
+<div class="card">
+
+    <img src="{{ restaurant.picture }}" alt="{{ restaurant.name }}">
+
+    <div class="content">
+        <h2>{{ restaurant.name }}</h2>
+
+        <p>{{ restaurant.cuisine }}</p>
+
+        <span>⭐ {{ restaurant.rating }}</span>
+
+        <a href="{% url 'view_menu' restaurant.id username %}">
+            View Menu
+        </a>
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
 </body>
 </html>

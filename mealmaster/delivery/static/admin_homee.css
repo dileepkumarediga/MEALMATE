@@ -1,33 +1,97 @@
-body{
-    font-family: Arial, sans-serif;
-    background:#f2f2f2;
-    text-align:center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
+
+body{
+    background:#f4f6f9;
+}
+
+/* Header */
+
+header{
+    background:#fc8019;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+header h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+/* Main Container */
 
 .container{
-    width:350px;
-    margin:120px auto;
-    padding:30px;
-    background:white;
-    border-radius:8px;
-    box-shadow:0 0 10px gray;
+    width:90%;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
 }
 
-h2{
-    color:#333;
-    margin-bottom:30px;
+/* Cards */
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.3s ease;
 }
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.card h2{
+    color:#333;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+/* Buttons */
 
 .btn{
-    display:block;
-    background:#007bff;
+    display:inline-block;
+    background:#fc8019;
     color:white;
     text-decoration:none;
-    padding:12px;
-    margin:15px 0;
-    border-radius:5px;
+    padding:14px 28px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
 }
 
 .btn:hover{
-    background:#0056b3;
+    background:#e56f10;
+}
+
+/* Footer */
+
+footer{
+    margin-top:40px;
+    padding:20px;
+    text-align:center;
+    color:#777;
+    font-size:15px;
 }

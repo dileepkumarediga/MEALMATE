@@ -1,42 +1,73 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Cart | MealMate</title>
+
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
 </head>
 <body>
-    Hello {{username}}
-    <!-- show current menu -->
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Item Image</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%  for item in itemList %}
-                <tr>
-                    <td>
-                        <img src="{{ item.picture }}">
-                    </td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>
-                        <a href="{% url 'remove_item' item.id username%}">Remove</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-        <h2>Total price : {{total_price}}</h2>
-        <form action="{% url 'checkout' username %}">
-            <input type="submit" value="CHECK OUT" />
-        </form>
-    </table>
+
+<header>
+    <h1>🛒 MealMate Cart</h1>
+    <h2>Welcome {{ username }}</h2>
+</header>
+
+<div class="container">
+
+    {% if itemList %}
+
+        {% for item in itemList %}
+
+        <div class="card">
+
+            <img src="{{ item.picture }}" alt="{{ item.name }}">
+
+            <div class="content">
+
+                <h2>{{ item.name }}</h2>
+
+                <p>{{ item.description }}</p>
+
+                <h3>₹{{ item.price }}</h3>
+
+                <a class="remove-btn"
+                   href="{% url 'remove_item' item.id username %}">
+                    ❌ Remove
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+            <h2>Your Cart is Empty 🛒</h2>
+            <p>Add some delicious food first!</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+<div class="summary">
+
+    <h2>Total Amount</h2>
+
+    <h1>₹{{ total_price }}</h1>
+
+    <form action="{% url 'checkout' username %}">
+        <button type="submit">
+            Proceed to Checkout 💳
+        </button>
+    </form>
+
+</div>
+
 </body>
 </html>

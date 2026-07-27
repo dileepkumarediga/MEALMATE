@@ -115,13 +115,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'statics/'
-STATIC_URL = 'signupp/'
-STATIC_URL = 'signinn/'
-STATIC_URL = 'faill/'
-STATIC_URL = 'admin_homee/'
-STATIC_URL = 'add_restaurant/'
-STATIC_URL = 'show_restaurant/'
+STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

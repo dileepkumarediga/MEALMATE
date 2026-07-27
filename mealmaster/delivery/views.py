@@ -218,14 +218,20 @@ def view_menu(request, restaurant_id, username):
                      "username":username})
 
 def add_to_cart(request, item_id, username):
-    item = Item.objects.get(id = item_id)
-    customer = User.objects.get(username = username)
+    # Get the selected food item
+    item = Item.objects.get(id=item_id)
 
-    cart, created = Cart.objects.get_or_create(customer = customer)
+    # Get the logged-in customer
+    customer = User.objects.get(username=username)
 
+    # Create cart if it doesn't exist
+    cart, created = Cart.objects.get_or_create(customer=customer)
+
+    # Add item to cart
     cart.items.add(item)
 
-    return HttpResponse('added to cart')
+    # Redirect to Cart page
+    return redirect('show_cart', username=username)
 
 def show_cart(request, username):
     customer = User.objects.get(username = username)

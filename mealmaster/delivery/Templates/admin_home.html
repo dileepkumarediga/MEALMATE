@@ -1,22 +1,65 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home</title>
+    <title>MealMate Admin</title>
+
     <link rel="stylesheet" href="{% static 'admin_homee.css' %}">
 </head>
+
 <body>
 
+<header>
+
+<h1>🍽 MealMate Admin Panel</h1>
+
+<p>Welcome Administrator 👋</p>
+
+</header>
+
 <div class="container">
-    <h2>Welcome to Admin Home!</h2>
 
-    <a href="open_add_restaurant" class="btn">Add New Restaurant</a>
+<div class="card">
 
-    <a href="open_show_restaurant" class="btn">Show Restaurants</a>
+<div class="icon">🏪</div>
+
+<h2>Add Restaurant</h2>
+
+<p>Add new restaurants to MealMate.</p>
+
+<a href="open_add_restaurant" class="btn">
+
+Add Restaurant
+
+</a>
+
 </div>
+
+<div class="card">
+
+<div class="icon">🍴</div>
+
+<h2>Manage Restaurants</h2>
+
+<p>View, update and manage restaurants.</p>
+
+<a href="open_show_restaurant" class="btn">
+
+Show Restaurants
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+MealMate Admin Dashboard © 2026
+
+</footer>
 
 </body>
 </html>

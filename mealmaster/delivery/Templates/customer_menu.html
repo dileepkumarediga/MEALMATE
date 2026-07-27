@@ -1,45 +1,59 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MealMate Menu</title>
+
+    <link rel="stylesheet" href="{% static 'customer_menu.css' %}">
 </head>
+
 <body>
-    <h3>Welcome {{username}}!</h3>
 
-    <a href="{% url 'show_cart' username %}" > Go to cart</a>
+<header>
+    <h1>🍽 MealMate</h1>
+    <h2>{{ restaurant.name }} Menu</h2>
 
-    <!-- show current menu -->
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Item name</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Is veg?</th>
-                <th>Operation</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%  for item in itemList %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>
-                        <img src="{{ item.picture }}">
-                    </td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>{{ item.vegeterian }}</td>
-                    <td>
-                        <a href="{% url 'add_to_cart' item.id username %}">
-                            Add to cart
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <a class="cart-btn" href="{% url 'show_cart' username %}">
+        🛒 Go to Cart
+    </a>
+</header>
+
+<div class="container">
+
+{% for item in itemList %}
+
+<div class="card">
+
+    <img src="{{ item.picture }}" alt="{{ item.name }}">
+
+    <div class="content">
+
+        <h2>{{ item.name }}</h2>
+
+        <p>{{ item.description }}</p>
+
+        {% if item.vegeterian %}
+            <span class="veg">🟢 Veg</span>
+        {% else %}
+            <span class="nonveg">🔴 Non Veg</span>
+        {% endif %}
+
+        <h3>₹{{ item.price }}</h3>
+
+        <a class="btn"
+           href="{% url 'add_to_cart' item.id username %}">
+           Add to Cart 🛒
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
 </body>
 </html>
