@@ -125,3 +125,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 RAZORPAY_KEY_ID = 'rzp_test_T7NZ0ggNbE6b2o'
 RAZORPAY_KEY_SECRET = 'jQR4Gd19dWVrETIUIABdw35p'
+
+
+CSRF_TRUSTED_ORIGINS = ["https://mealmate-production-687d.up.railway.app",]
+ALLOWED_HOSTS = [
+    "mealmate-production-687d.up.railway.app",
+    ]
+
